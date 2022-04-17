@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+/* ------------------------------------------------------------------------------ */
+/* Custom Props*/
+/* ------------------------------------------------------------------------------ */
+:root {
+  /* colors */
+  --blue-2: 215 51% 70%;
+  --cyan-2: 178 100% 50%;
+  --blue-9: 217 54% 11%;
+  --blue-8: 216 50% 16%;
+  --blue-7: 215 32% 27%;
+  --white: 0 0% 100%;
+  /* fonts size */
+  --fs-5: 1rem;
+  --fs-6: 1.5rem;
+  --fs-7: 2rem;
+  /* Font family */
+  --ff-sans: "Outfit", sans-serif;
+}
+
+/* ------------------------------------------------------------------------------ */
+/* reset */
+/* ------------------------------------------------------------------------------ */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------------------------ */
+/* General Utils */
+/* ------------------------------------------------------------------------------ */
+.flow > * + * {
+  margin-top: var(--flow-spacer-3, 1rem);
+}
+
+.flex {
+  display: flex;
+  gap: var(--spacer-3, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--spacer-3, 1rem);
+}
+
+.container {
+  max-width: 80rem;
+  position: relative;
+  padding: var(--spacer-4, 1.5rem);
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.inline {
+  vertical-align: middle;
+  display: inline;
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.text-highlight {
+  color: hsl(var(--white));
+}
+
+.text-highlight2 {
+  color: hsl(var(--cyan-2));
+}
+
+/* ------------------------------------------------------------------------------ */
+/* Layout */
+/* ------------------------------------------------------------------------------ */
+body {
+  place-content: center;
+  background-color: hsl(var(--blue-9));
+  color: hsl(var(--blue-2));
+}
+
+.card-container {
+  background-color: hsl(var(--blue-8));
+  max-width: 20rem;
+  flex-direction: column;
+  flex-shrink: 1;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 1.5rem;
+}
+
+.card-img {
+  position: relative;
+}
+
+.card-img > img {
+  border-radius: 20px;
+}
+
+.card-img:hover::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: hsl(var(--cyan-2) / 0.5);
+  background-image: url("./images/icon-view.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.card-stats {
+  justify-content: space-between;
+}
+
+.text-highlight:hover {
+  color: hsl(var(--cyan-2));
+  cursor: pointer;
+}
+
+.card-divider {
+  display: block;
+  width: 100%;
+  border-width: 1.5px;
+  overflow: hidden;
+  border-color: hsl(var(--blue-7));
+}
+
+.card-footer > img {
+  width: 30px;
+  height: 30px;
+  border: 1px solid hsl(var(--white));
+  border-radius: 50%;
+}
